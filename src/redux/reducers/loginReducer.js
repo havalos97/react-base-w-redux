@@ -10,13 +10,13 @@ export default (state=INITIAL_STATE, action) => {
 		case 'set_username':
 			return {
 				...state,
-				username: action.payload.trim(),
+				username: action.payload,
 			}
 
 		case 'set_password':
 			return {
 				...state,
-				password: action.payload.trim(),
+				password: action.payload,
 			}
 
 		case 'set_rememberMe':
