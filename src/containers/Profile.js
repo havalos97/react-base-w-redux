@@ -27,8 +27,13 @@ class Profile extends Component {
 }
 
 const mapStateToProps = (reducers) => {
+	/* Reducer destructuring */
 	const {profileReducer, loginReducer} = reducers;
 
+	/*
+	* Getting only username from loginReducer.
+	* profileReducer is used completely.
+	* */
 	const combinedStates = {
 		loginState: {
 			username: loginReducer.username,
@@ -41,6 +46,9 @@ const mapStateToProps = (reducers) => {
 }
 
 function mapDispatchToProps(dispatch) {
+	/* Return only profileActions
+	* (in case we need more actions, just add another k:v pair with the new actions using bindActionCreators)
+	* */
 	return {
 		profileActions: bindActionCreators(profileActions, dispatch),
 	}
