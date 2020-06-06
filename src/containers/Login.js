@@ -57,7 +57,7 @@ const Login = (props) => {
 
 	function doLogin(username, password) {
 		const authenticated_user = temp_tables.users.find((user) => {
-			return (user.username === username && user.password === password);
+			return (user.username === username.trim() && user.password === password.trim());
 		});
 		if (authenticated_user) {
 			props.setRedirectTo('/profile');
