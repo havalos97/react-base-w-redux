@@ -56,10 +56,10 @@ const Login = (props) => {
 	const classes = useStyles();
 
 	function doLogin(username, password) {
-		const authenticated_user = temp_tables.users.filter((user) => {
+		const authenticated_user = temp_tables.users.find((user) => {
 			return (user.username === username && user.password === password);
 		});
-		if (authenticated_user.length > 0) {
+		if (authenticated_user) {
 			props.setRedirectTo('/profile');
 		} else {
 			alert('Usuario o contraseña incorrectos. Intente de nuevo.')
@@ -67,7 +67,6 @@ const Login = (props) => {
 	}
 
 	if (props.redirectTo.length > 0) {
-		console.log(props.redirectTo);
 		return (
 			<Redirect to={props.redirectTo} />
 		);
